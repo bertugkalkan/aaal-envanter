@@ -291,5 +291,29 @@
     "details": "Kullanıcı girişi: Sefa Hocam",
     "timestamp": "2026-01-08T20:20:41.870Z",
     "id": "290b5060-78a5-43ab-9fcd-b64b1d4fae1d"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T20:27:21.205Z",
+    "id": "f56d91ac-4bdb-411b-91fb-02109a7d4799"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-08T20:36:33.297Z",
+    "id": "71f10dab-6724-4a0c-9452-7ef20004a098"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-08T20:39:53.455Z",
+    "id": "0b5bc51b-8202-40e3-b9bf-d3e67286018c"
   }
 ]
