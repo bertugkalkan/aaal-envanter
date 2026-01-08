@@ -1,0 +1,295 @@
+[
+  {
+    "action": "USER_REGISTER",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni kullanıcı kaydı: admin@test.com",
+    "timestamp": "2026-01-08T18:48:37.855Z",
+    "id": "12fed901-d023-48b3-8ffc-399b7130cded"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: admin@test.com",
+    "timestamp": "2026-01-08T19:01:07.965Z",
+    "id": "37519ba6-3515-490f-b8c2-3bfdf66b16eb"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T19:12:15.139Z",
+    "id": "1b386db7-78ca-4db3-a6a2-03c77e45a68e"
+  },
+  {
+    "action": "USER_REGISTER",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni kullanıcı eklendi: Bertuğ Kalkan (user)",
+    "metadata": {
+      "newUserId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+      "email": "",
+      "role": "user"
+    },
+    "timestamp": "2026-01-08T19:15:00.252Z",
+    "id": "9a8d8b45-e2fb-4492-a285-09e745b9af3e"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T19:16:07.775Z",
+    "id": "988bba30-d3a6-418d-a59f-b38b384a843c"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T19:16:42.298Z",
+    "id": "49dcbb1a-3e3d-4b89-a1a2-f792dac5d6bc"
+  },
+  {
+    "action": "INVENTORY_CREATE",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni malzeme eklendi: Servo Motor",
+    "metadata": {
+      "itemId": "720e5d50-1176-43a6-bab7-6d9fdc02178d",
+      "name": "Servo Motor",
+      "category": "Elektronik",
+      "quantity": 5
+    },
+    "timestamp": "2026-01-08T19:17:14.743Z",
+    "id": "2ab07676-53f1-4fb9-9bbd-d1424711becc"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T19:17:28.962Z",
+    "id": "b7e4d081-58d1-4f3a-99be-3b97883a485f"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T19:26:17.132Z",
+    "id": "69441011-58e6-401e-9332-b68eb2a8c5b6"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T19:33:19.028Z",
+    "id": "7fc7f4a1-22b4-4128-89ee-d89705df26fa"
+  },
+  {
+    "action": "INVENTORY_CREATE",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni malzeme eklendi: Arduino",
+    "metadata": {
+      "itemId": "8a6f361f-d363-43f4-8d36-ba0050b70c30",
+      "name": "Arduino",
+      "category": "Elektronik",
+      "quantity": 10
+    },
+    "timestamp": "2026-01-08T19:37:23.334Z",
+    "id": "5c8e0ce1-5b3e-479c-b95e-90f77878a445"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T19:37:38.371Z",
+    "id": "a0863d47-ebfe-495e-87ee-e9979a3c22df"
+  },
+  {
+    "action": "REQUEST_CREATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Yeni talep oluşturuldu: Arduino (1 adet)",
+    "metadata": {
+      "requestId": "7ae11635-25ed-4a68-8c7d-7d0c4959b836",
+      "itemId": "8a6f361f-d363-43f4-8d36-ba0050b70c30",
+      "quantity": 1,
+      "reason": "."
+    },
+    "timestamp": "2026-01-08T19:38:09.174Z",
+    "id": "277c1b81-d2bb-47e2-aea6-5fd5b3db55b5"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T19:38:27.468Z",
+    "id": "1a6b7626-18b9-4e77-a8d4-50d9909c8fa0"
+  },
+  {
+    "action": "USER_REGISTER",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni kullanıcı eklendi: Sefa Hocam (advisor)",
+    "metadata": {
+      "newUserId": "490736c4-8f4b-4876-a735-759422557ac5",
+      "email": "",
+      "role": "advisor"
+    },
+    "timestamp": "2026-01-08T19:38:47.354Z",
+    "id": "a9785640-ec2f-4387-8062-ed9191b8aa00"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-08T19:38:56.227Z",
+    "id": "30536588-9c35-488a-b5bb-d863c7d5e24f"
+  },
+  {
+    "action": "REQUEST_APPROVE",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Talep onaylandı: Arduino",
+    "metadata": {
+      "requestId": "7ae11635-25ed-4a68-8c7d-7d0c4959b836",
+      "action": "approve",
+      "adminNote": "(:"
+    },
+    "timestamp": "2026-01-08T19:39:13.404Z",
+    "id": "0acb599e-3e9a-45e7-ba70-03eb09013b20"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-08T20:04:26.757Z",
+    "id": "d068a7ef-064a-448a-8267-cef54a9389a0"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T20:05:31.471Z",
+    "id": "b329553f-d6fc-4891-bbfe-a52554eb8a17"
+  },
+  {
+    "action": "INVENTORY_CREATE",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Yeni malzeme eklendi: Atlas Motor",
+    "metadata": {
+      "itemId": "f63f86a0-146a-4381-9ddd-f9d0974614ee",
+      "name": "Atlas Motor",
+      "category": "Motorlar",
+      "quantity": 1
+    },
+    "timestamp": "2026-01-08T20:06:29.398Z",
+    "id": "0d966bb7-648d-4334-b2b7-73249286acac"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T20:06:49.675Z",
+    "id": "bb0b1619-59db-46a2-9c90-032a9b90328c"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T20:07:56.127Z",
+    "id": "136ffde0-a8ba-481a-aad5-97e9e7830e87"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı girişi: Ahmet Hoca",
+    "timestamp": "2026-01-08T20:09:10.362Z",
+    "id": "aec661fb-3b49-49b5-87c4-6150d099233b"
+  },
+  {
+    "action": "USER_REGISTER",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "Ahmet Hoca",
+    "details": "Kullanıcı güncellendi: Ahmet Hoca",
+    "metadata": {
+      "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+      "updates": [
+        "firstName",
+        "lastName",
+        "email",
+        "role"
+      ]
+    },
+    "timestamp": "2026-01-08T20:09:31.453Z",
+    "id": "24d8217c-2934-4db6-a43f-6b023a4edd82"
+  },
+  {
+    "action": "USER_REGISTER",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Yeni kullanıcı eklendi: Efe Kerem (user)",
+    "metadata": {
+      "newUserId": "3fe15b88-6d0b-4f4a-b3ed-4af074035698",
+      "email": "",
+      "role": "user"
+    },
+    "timestamp": "2026-01-08T20:15:04.120Z",
+    "id": "2efae0b8-8d30-4584-a326-f0dff9739ead"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T20:15:27.762Z",
+    "id": "9bcc2f87-820b-4512-9f8f-7305008c16bb"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-08T20:16:08.948Z",
+    "id": "70aff2f7-c978-40e0-a53c-5ec9fd9d6ce3"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-08T20:17:25.110Z",
+    "id": "c3f22a7d-3ba2-4c1d-acad-fe712be0a88d"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-08T20:18:19.632Z",
+    "id": "447e2dbf-62fb-4daf-b0bf-38d72265958b"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-08T20:20:41.870Z",
+    "id": "290b5060-78a5-43ab-9fcd-b64b1d4fae1d"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "firstName": "admin",
+    "lastName": "admin",
+    "email": "admin@test.com",
+    "password": "$2b$12$y5cUIC9q/WEXnrkbmrzhVOEJxBFOaUqRYT8hECHq2orkYXORZq.ZC",
+    "role": "admin",
+    "createdAt": "2026-01-08T18:48:37.849Z",
+    "id": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91"
+  },
+  {
+    "firstName": "Bertuğ",
+    "lastName": "Kalkan",
+    "password": "$2b$12$3jbGIe58ghXDh5oxO4gNhegrxAMoaVbDvbVlgFgS/MFdv5UD0M27.",
+    "role": "user",
+    "createdAt": "2026-01-08T19:15:00.251Z",
+    "id": "c05524fa-84dd-498f-90b9-6b11b168dbd3"
+  },
+  {
+    "firstName": "Sefa",
+    "lastName": "Hocam",
+    "password": "$2b$12$OOogBDwH6vVG3XGpXNJs2e7ZKue1Nwbd13GTfrDWl3UEIXhl7n2De",
+    "role": "advisor",
+    "createdAt": "2026-01-08T19:38:47.352Z",
+    "id": "490736c4-8f4b-4876-a735-759422557ac5"
+  },
+  {
+    "firstName": "Efe",
+    "lastName": "Kerem",
+    "password": "$2b$12$7PCSYTUNWr4MxfaknODNHe3EdFtP2ugimcp3/eqd..2OOubTYibMa",
+    "role": "user",
+    "createdAt": "2026-01-08T20:15:04.119Z",
+    "id": "3fe15b88-6d0b-4f4a-b3ed-4af074035698"
+  }
+]

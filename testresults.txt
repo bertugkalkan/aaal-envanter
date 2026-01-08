@@ -1,0 +1,457 @@
+﻿
+> aaal-envanter@0.1.0 test
+> jest
+
+node.exe : FAIL __tes
+ts__/integration/requ
+est.integration.test.
+ts
+At C:\Program Files\n
+odejs\npm.ps1:29 char
+:3
++   & $NODE_EXE $NPM_
+CLI_JS $args
++   ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (FAIL __   
+ tests__/...grati    
+on.test.ts:Strin    g
+) [], RemoteExc    ep
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  ÔùÅ Request Workflo
+w Integration Tests Ô
+Ç║ Create Request Flo
+w ÔÇ║ User: Create re
+quest ÔåÆ Stock check
+ ÔåÆ Log
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 1
+    Received: 0
+
+    [0m [90m 69 |[
+39m             [90m
+// Verify log[39m
+     [90m 70 |[39m 
+            [36mcons
+t[39m logs [33m=[3
+9m getLogs({ action[
+33m:[39m [32m'REQUE
+ST_CREATE'[39m })[3
+3m;[39m
+    [31m[1m>[22m[
+39m[90m 71 |[39m   
+          expect(logs
+[33m.[39mlength)[3
+3m.[39mtoBe([35m1[
+39m)[33m;[39m
+     [90m    |[39m 
+                     
+           [31m[1m^
+[22m[39m
+     [90m 72 |[39m 
+        })[33m;[39m
+     [90m 73 |[39m
+     [90m 74 |[39m 
+        test([32m'Us
+er: Duplicate pending
+ request ÔåÆ Should d
+etect'[39m[33m,[39
+m () [33m=>[39m {[
+0m
+
+      at Object.<anon
+ymous> (__tests__/int
+egration/request.inte
+gration.test.ts:71:33
+)
+
+  ÔùÅ Request Workflo
+w Integration Tests Ô
+Ç║ Approve Request Fl
+ow ÔÇ║ Admin: Approve
+ ÔåÆ Decrease stock Ô
+åÆ Log
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 1
+    Received: 0
+
+    [0m [90m 179 |
+[39m
+     [90m 180 |[39m
+             [36mcon
+st[39m logs [33m=[
+39m getLogs({ action
+[33m:[39m [32m'REQU
+EST_APPROVE'[39m })
+[33m;[39m
+    [31m[1m>[22m[
+39m[90m 181 |[39m  
+           expect(log
+s[33m.[39mlength)[
+33m.[39mtoBe([35m1
+[39m)[33m;[39m
+     [90m     |[39m
+                     
+            [31m[1m
+^[22m[39m
+     [90m 182 |[39m
+         })[33m;[39
+m
+     [90m 183 |[39m
+     })[33m;[39m
+     [90m 184 |[39m
+[0m
+
+      at Object.<anon
+ymous> (__tests__/int
+egration/request.inte
+gration.test.ts:181:3
+3)
+
+FAIL __tests__/logger
+.test.ts
+  ÔùÅ Logger Module Ô
+Ç║ getRecentLogs func
+tion ÔÇ║ should use d
+efault limit of 50
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 10
+    Received: 2
+
+    [0m [90m 102 |
+[39m         test([3
+2m'should use default
+ limit of 50'[39m[3
+3m,[39m () [33m=>[
+39m {
+     [90m 103 |[39m
+             [36mcon
+st[39m logs [33m=[
+39m getRecentLogs()[
+33m;[39m
+    [31m[1m>[22m[
+39m[90m 104 |[39m  
+           expect(log
+s[33m.[39mlength)[
+33m.[39mtoBe([35m10
+[39m)[33m;[39m [9
+0m// Less than 50, so
+ all returned[39m
+     [90m     |[39m
+                     
+            [31m[1m
+^[22m[39m
+     [90m 105 |[39m
+         })[33m;[39
+m
+     [90m 106 |[39m
+     })[33m;[39m
+     [90m 107 |[39m
+ })[33m;[39m[0m
+
+      at Object.<anon
+ymous> (__tests__/log
+ger.test.ts:104:33)
+
+FAIL __tests__/integr
+ation/inventory.integ
+ration.test.ts
+  ÔùÅ Inventory Integ
+ration Tests ÔÇ║ Admi
+n Inventory CRUD with
+ Logging ÔÇ║ Admin: C
+reate item ÔåÆ DB ver
+ify ÔåÆ Log check
+
+    expect(received).
+toBeDefined()
+
+    Received: undefin
+ed
+
+    [0m [90m 53 |[
+39m             [90m
+// Verify item in DB
+[39m
+     [90m 54 |[39m 
+            [36mcons
+t[39m savedItem [33
+m=[39m findById[33m
+<[39m[33mInventoryI
+tem[39m[33m>[39m(
+[32m'inventory'[39m
+[33m,[39m newItem[3
+3m.[39mid)[33m;[39
+m
+    [31m[1m>[22m[
+39m[90m 55 |[39m   
+          expect(save
+dItem)[33m.[39mtoBe
+Defined()[33m;[39m
+     [90m    |[39m 
+                     
+         [31m[1m^[
+22m[39m
+     [90m 56 |[39m 
+            expect(sa
+vedItem[33m?[39m[3
+3m.[39mname)[33m.[
+39mtoBe([32m'Arduino
+ Uno'[39m)[33m;[39
+m
+     [90m 57 |[39m 
+            expect(sa
+vedItem[33m?[39m[3
+3m.[39mquantity)[33
+m.[39mtoBe([35m10[
+39m)[33m;[39m
+     [90m 58 |[39m
+[0m
+
+      at Object.<anon
+ymous> (__tests__/int
+egration/inventory.in
+tegration.test.ts:55:
+31)
+
+FAIL __tests__/db.tes
+t.ts
+  ÔùÅ Database Module
+ ÔÇ║ CRUD Operations 
+ÔÇ║ findOne should re
+turn first matching i
+tem
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: "Target
+"
+    Received: undefin
+ed
+
+    [0m [90m 130 |
+[39m
+     [90m 131 |[39m
+             [36mcon
+st[39m found [33m=
+[39m findOne[33m<[3
+9m[33mTestItem[39m
+[33m>[39m([32m'inve
+ntory'[39m[33m,[39
+m item [33m=>[39m i
+tem[33m.[39mname [
+33m===[39m [32m'Tar
+get'[39m)[33m;[39m
+    [31m[1m>[22m[
+39m[90m 132 |[39m  
+           expect(fou
+nd[33m?[39m[33m.[
+39mname)[33m.[39mto
+Be([32m'Target'[39m
+)[33m;[39m
+     [90m     |[39m
+                     
+            [31m[1m
+^[22m[39m
+     [90m 133 |[39m
+         })[33m;[39
+m
+     [90m 134 |[39m
+     [90m 135 |[39m
+         test([32m'f
+indMany should return
+ all matching items'
+[39m[33m,[39m () [
+33m=>[39m {[0m
+
+      at Object.<anon
+ymous> (__tests__/db.
+test.ts:132:33)
+
+  ÔùÅ Database Module
+ ÔÇ║ CRUD Operations 
+ÔÇ║ findMany should r
+eturn all matching it
+ems
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 2
+    Received: 0
+
+    [0m [90m 139 |
+[39m
+     [90m 140 |[39m
+             [36mcon
+st[39m highItems [3
+3m=[39m findMany[33
+m<[39m[33mTestItem
+[39m[33m>[39m([32m
+'inventory'[39m[33m
+,[39m item [33m=>[
+39m item[33m.[39mva
+lue [33m>[39m [35m
+100[39m)[33m;[39m
+    [31m[1m>[22m[
+39m[90m 141 |[39m  
+           expect(hig
+hItems[33m.[39mleng
+th)[33m.[39mtoBe([
+35m2[39m)[33m;[39m
+     [90m     |[39m
+                     
+                 [31
+m[1m^[22m[39m
+     [90m 142 |[39m
+         })[33m;[39
+m
+     [90m 143 |[39m
+     [90m 144 |[39m
+         test([32m'u
+pdate should modify i
+tem correctly'[39m[
+33m,[39m () [33m=>
+[39m {[0m
+
+      at Object.<anon
+ymous> (__tests__/db.
+test.ts:141:38)
+
+FAIL __tests__/integr
+ation/e2e.integration
+.test.ts
+  ÔùÅ End-to-End Inte
+gration Test ÔÇ║ Comp
+lete Business Flow: R
+egistration ÔåÆ Inven
+tory ÔåÆ Request ÔåÆ 
+Approval
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 6
+    Received: 5
+
+    [0m [90m 160 |
+[39m
+     [90m 161 |[39m
+         [90m// Veri
+fy log count[39m
+    [31m[1m>[22m[
+39m[90m 162 |[39m  
+       expect(allLogs
+[33m.[39mlength)[3
+3m.[39mtoBe([35m6[
+39m)[33m;[39m [90m
+// 2 registers + 1 lo
+gin + 1 inventory + 1
+ request + 1 approve
+[39m
+     [90m     |[39m
+                     
+           [31m[1m^
+[22m[39m
+     [90m 163 |[39m
+     [90m 164 |[39m
+         [90m// ====
+================ Fina
+l Verification ======
+==============[39m
+     [90m 165 |[39m
+         console[33m
+.[39mlog([32m'Ô£à E
+2E Test Complete!'[3
+9m)[33m;[39m[0m
+
+      at Object.<anon
+ymous> (__tests__/int
+egration/e2e.integrat
+ion.test.ts:162:32)
+
+PASS __tests__/auth.t
+est.ts
+FAIL __tests__/integr
+ation/auth.integratio
+n.test.ts
+  ÔùÅ Auth Integratio
+n Tests ÔÇ║ Complete 
+Registration Flow ÔÇ║
+ should register new 
+user ÔåÆ save to DB Ô
+åÆ create log
+
+    expect(received).
+toBe(expected) // Obj
+ect.is equality
+
+    Expected: 1
+    Received: 2
+
+    [0m [90m 49 |[
+39m             [90m
+// Verify log was cre
+ated[39m
+     [90m 50 |[39m 
+            [36mcons
+t[39m logs [33m=[3
+9m getLogs({ action[
+33m:[39m [32m'USER_
+REGISTER'[39m })[33
+m;[39m
+    [31m[1m>[22m[
+39m[90m 51 |[39m   
+          expect(logs
+[33m.[39mlength)[3
+3m.[39mtoBe([35m1[
+39m)[33m;[39m
+     [90m    |[39m 
+                     
+           [31m[1m^
+[22m[39m
+     [90m 52 |[39m 
+            expect(lo
+gs[[35m0[39m][33m.
+[39mdetails)[33m.[
+39mtoContain(email)[
+33m;[39m
+     [90m 53 |[39m 
+        })[33m;[39m
+     [90m 54 |[39m
+[0m
+
+      at Object.<anon
+ymous> (__tests__/int
+egration/auth.integra
+tion.test.ts:51:33)
+
+Test Suites: 6 failed
+, 1 passed, 7 total
+Tests:       8 failed
+, 44 passed, 52 total
+Snapshots:   0 total
+Time:        4.546 s
+Ran all test suites.
