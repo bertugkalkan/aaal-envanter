@@ -24,6 +24,41 @@
     "createdAt": "2026-01-09T16:56:01.722Z",
     "id": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5",
     "reviewedBy": "490736c4-8f4b-4876-a735-759422557ac5",
-    "reviewedAt": "2026-01-09T16:56:38.652Z"
+    "reviewedAt": "2026-01-09T16:56:38.652Z",
+    "returnStatus": "returned",
+    "returnRequestedAt": "2026-01-09T20:51:16.650Z",
+    "returnedAt": "2026-01-09T20:52:22.478Z"
+  },
+  {
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "itemId": "720e5d50-1176-43a6-bab7-6d9fdc02178d",
+    "itemName": "Servo Motor",
+    "quantity": 1,
+    "status": "approved",
+    "createdAt": "2026-01-09T20:54:51.643Z",
+    "id": "c585ab17-f349-4ee0-bcd3-c4005bcc4ba1",
+    "reviewedBy": "490736c4-8f4b-4876-a735-759422557ac5",
+    "reviewedAt": "2026-01-09T20:55:30.860Z",
+    "returnType": "admin_check",
+    "returnStatus": "returned",
+    "returnedAt": "2026-01-09T21:02:24.746Z"
+  },
+  {
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "itemId": "720e5d50-1176-43a6-bab7-6d9fdc02178d",
+    "itemName": "Servo Motor",
+    "quantity": 2,
+    "reason": ".",
+    "status": "approved",
+    "createdAt": "2026-01-09T21:01:46.073Z",
+    "id": "d96161bb-2860-44f0-846d-480d47a70ed3",
+    "reviewedBy": "490736c4-8f4b-4876-a735-759422557ac5",
+    "reviewedAt": "2026-01-09T21:02:20.979Z",
+    "returnType": "admin_check",
+    "returnStatus": "returned",
+    "returnRequestedAt": "2026-01-09T21:02:37.914Z",
+    "returnedAt": "2026-01-09T21:02:49.111Z"
   }
 ]

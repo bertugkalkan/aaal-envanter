@@ -10,7 +10,9 @@ export type LogAction =
     | 'REQUEST_CREATE'
     | 'REQUEST_APPROVE'
     | 'REQUEST_REJECT'
-    | 'REQUEST_CANCEL';
+    | 'REQUEST_CANCEL'
+    | 'RETURN_INITIATE'
+    | 'RETURN_CONFIRM';
 
 export interface LogEntry {
     id: string;

@@ -406,5 +406,205 @@
     "details": "Kullanıcı girişi: Bertuğ Kalkan",
     "timestamp": "2026-01-09T17:54:57.378Z",
     "id": "0974156f-c538-4254-b47f-2a1c94bf6151"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-09T20:29:57.820Z",
+    "id": "9b70a12b-f13f-4ca0-bc2e-36a529d0dba3"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T20:30:26.891Z",
+    "id": "6ae3f5cb-feb2-420b-9711-5a627c8e3cee"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T20:51:01.271Z",
+    "id": "c01b506c-7664-4ad1-976b-6a8458798ec2"
+  },
+  {
+    "action": "RETURN_INITIATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "İade işlemi: Wisent El Alet Seti (Onay Bekliyor)",
+    "metadata": {
+      "requestId": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5",
+      "returnStatus": "pending_return"
+    },
+    "timestamp": "2026-01-09T20:51:16.651Z",
+    "id": "5cadad36-638b-48c9-ab76-4a2d2a981089"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-09T20:51:33.332Z",
+    "id": "f88bbf2d-1aae-4eab-81da-3be0a4c866c6"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T20:52:10.204Z",
+    "id": "67917405-d4c3-41e4-89bc-a853bb8435a7"
+  },
+  {
+    "action": "RETURN_CONFIRM",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "İade onaylandı: Wisent El Alet Seti",
+    "metadata": {
+      "requestId": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5"
+    },
+    "timestamp": "2026-01-09T20:52:22.478Z",
+    "id": "af68cf36-c78d-4998-89ea-74085bbf40ab"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-09T20:53:08.221Z",
+    "id": "e628a3ae-b01a-41f8-b6de-68cbc084783b"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T20:53:25.869Z",
+    "id": "0a7335e1-ef9b-411f-8d1c-0dec0a0f2272"
+  },
+  {
+    "action": "REQUEST_CREATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Yeni talep oluşturuldu: Servo Motor (1 adet)",
+    "metadata": {
+      "requestId": "c585ab17-f349-4ee0-bcd3-c4005bcc4ba1",
+      "itemId": "720e5d50-1176-43a6-bab7-6d9fdc02178d",
+      "quantity": 1
+    },
+    "timestamp": "2026-01-09T20:54:51.644Z",
+    "id": "0bc481db-c114-44f1-aa36-22ee13c342a0"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T20:55:13.178Z",
+    "id": "3f3c04fb-31e4-443e-b178-d99359d25455"
+  },
+  {
+    "action": "REQUEST_APPROVE",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Talep onaylandı: Servo Motor",
+    "metadata": {
+      "requestId": "c585ab17-f349-4ee0-bcd3-c4005bcc4ba1",
+      "action": "approve",
+      "adminNote": "",
+      "returnType": "admin_check"
+    },
+    "timestamp": "2026-01-09T20:55:30.862Z",
+    "id": "f2aa236c-4bd0-4933-a57d-9e0ec2cdb3c4"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T20:55:59.682Z",
+    "id": "e3baa02c-e8dd-40bd-9595-fed54f5f807f"
+  },
+  {
+    "action": "REQUEST_CREATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Yeni talep oluşturuldu: Servo Motor (2 adet)",
+    "metadata": {
+      "requestId": "d96161bb-2860-44f0-846d-480d47a70ed3",
+      "itemId": "720e5d50-1176-43a6-bab7-6d9fdc02178d",
+      "quantity": 2,
+      "reason": "."
+    },
+    "timestamp": "2026-01-09T21:01:46.075Z",
+    "id": "0dd13afc-4652-46d9-a442-941ce2a03eb8"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T21:02:03.254Z",
+    "id": "da01ed4c-d878-4113-9eed-daeb3be0a37e"
+  },
+  {
+    "action": "REQUEST_APPROVE",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Talep onaylandı: Servo Motor",
+    "metadata": {
+      "requestId": "d96161bb-2860-44f0-846d-480d47a70ed3",
+      "action": "approve",
+      "adminNote": "",
+      "returnType": "admin_check"
+    },
+    "timestamp": "2026-01-09T21:02:20.981Z",
+    "id": "47647fd0-8794-44e5-a727-5815506e5b22"
+  },
+  {
+    "action": "RETURN_CONFIRM",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "İade onaylandı: Servo Motor",
+    "metadata": {
+      "requestId": "c585ab17-f349-4ee0-bcd3-c4005bcc4ba1"
+    },
+    "timestamp": "2026-01-09T21:02:24.747Z",
+    "id": "e5a56046-ffff-434b-8f8c-95118b83c4a2"
+  },
+  {
+    "action": "RETURN_INITIATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "İade işlemi: Servo Motor (Onay Bekliyor)",
+    "metadata": {
+      "requestId": "d96161bb-2860-44f0-846d-480d47a70ed3",
+      "returnStatus": "pending_return"
+    },
+    "timestamp": "2026-01-09T21:02:37.915Z",
+    "id": "cedcda96-b7c3-459c-8ffe-3b87631f620b"
+  },
+  {
+    "action": "RETURN_CONFIRM",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "İade onaylandı: Servo Motor",
+    "metadata": {
+      "requestId": "d96161bb-2860-44f0-846d-480d47a70ed3"
+    },
+    "timestamp": "2026-01-09T21:02:49.112Z",
+    "id": "7d915c55-729d-4e93-911a-efa7e8a028cc"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-09T21:04:21.286Z",
+    "id": "47ec179c-fec7-410a-bc1b-4e866ade9022"
   }
 ]

@@ -36,6 +36,15 @@ interface InventoryItem {
     minQuantity: number;
 }
 
+interface ActiveLoan {
+    id: string;
+    userName: string;
+    itemName: string;
+    quantity: number;
+    approvedAt: string;
+    returnStatus?: 'pending_return' | 'returned';
+}
+
 export default function AdminDashboard() {
     const { token } = useAuth();
     const [stats, setStats] = useState<Stats>({
@@ -47,6 +56,8 @@ export default function AdminDashboard() {
     const [lowStockItems, setLowStockItems] = useState<InventoryItem[]>([]);
     const [recentUsers, setRecentUsers] = useState<RecentUser[]>([]);
     const [recentLogs, setRecentLogs] = useState<RecentLog[]>([]);
+    const [activeLoans, setActiveLoans] = useState<ActiveLoan[]>([]);
+    const [loanSearchTerm, setLoanSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -55,10 +66,11 @@ export default function AdminDashboard() {
 
     const fetchDashboardData = async () => {
         try {
-            const [inventoryRes, usersRes, logsRes] = await Promise.all([
+            const [inventoryRes, usersRes, logsRes, requestsRes] = await Promise.all([
                 fetch('/api/inventory', { headers: { Authorization: `Bearer ${token}` } }),
                 fetch('/api/users', { headers: { Authorization: `Bearer ${token}` } }),
-                fetch('/api/logs?limit=10', { headers: { Authorization: `Bearer ${token}` } })
+                fetch('/api/logs?limit=10', { headers: { Authorization: `Bearer ${token}` } }),
+                fetch('/api/requests', { headers: { Authorization: `Bearer ${token}` } })
             ]);
 
             if (inventoryRes.ok) {
@@ -91,6 +103,24 @@ export default function AdminDashboard() {
                     ...prev,
                     todayLogs: logsData.logs.filter((l: RecentLog) => new Date(l.timestamp).toDateString() === today).length
                 }));
+            }
+
+            if (requestsRes.ok) {
+                const requestsData = await requestsRes.json();
+                const requests = requestsData.requests;
+                // Get approved requests that are NOT yet returned
+                const approved = requests.filter((r: { status: string; returnStatus?: string }) =>
+                    r.status === 'approved' && r.returnStatus !== 'returned'
+                );
+                const loans: ActiveLoan[] = approved.map((r: { id: string; userName: string; itemName: string; quantity: number; reviewedAt?: string; createdAt: string; returnStatus?: string }) => ({
+                    id: r.id,
+                    userName: r.userName,
+                    itemName: r.itemName,
+                    quantity: r.quantity,
+                    approvedAt: r.reviewedAt || r.createdAt,
+                    returnStatus: r.returnStatus
+                }));
+                setActiveLoans(loans);
             }
         } catch (error) {
             console.error('Error fetching dashboard data:', error);
@@ -137,6 +167,11 @@ export default function AdminDashboard() {
         };
         return actions[action] || action;
     };
+
+    const filteredLoans = activeLoans.filter(loan =>
+        loan.userName.toLowerCase().includes(loanSearchTerm.toLowerCase()) ||
+        loan.itemName.toLowerCase().includes(loanSearchTerm.toLowerCase())
+    );
 
     if (isLoading) {
         return (
@@ -325,6 +360,71 @@ export default function AdminDashboard() {
                         </div>
                     )}
                 </div>
+            </div>
+
+            {/* Anlık Malzeme Durumu */}
+            <div className="glass-card p-6 mt-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <h2 className="text-lg font-bold flex items-center gap-2">
+                        <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        Anlık Malzeme Durumu
+                        <span className="text-sm font-normal text-[var(--text-secondary)]">(Kullanıcılardaki Malzemeler)</span>
+                    </h2>
+                    <input
+                        type="text"
+                        placeholder="Ara..."
+                        value={loanSearchTerm}
+                        onChange={(e) => setLoanSearchTerm(e.target.value)}
+                        className="input-field !py-1.5 !px-3 md:w-48 text-sm"
+                    />
+                </div>
+
+                {filteredLoans.length === 0 ? (
+                    <div className="text-center py-12 text-[var(--text-secondary)]">
+                        <p className="text-sm">Şu an kimseye verilmiş malzeme yok</p>
+                    </div>
+                ) : (
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-separate border-spacing-y-2">
+                            <thead>
+                                <tr className="text-[var(--text-secondary)] text-xs uppercase tracking-wider">
+                                    <th className="pb-2 font-medium">Kullanıcı</th>
+                                    <th className="pb-2 font-medium">Malzeme</th>
+                                    <th className="pb-2 font-medium">Adet</th>
+                                    <th className="pb-2 font-medium">Durum</th>
+                                    <th className="pb-2 font-medium">Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredLoans.map((loan) => (
+                                    <tr key={loan.id} className="bg-white/5 hover:bg-white/10 transition-colors">
+                                        <td className="py-3 px-4 rounded-l-xl">
+                                            <span className="font-medium text-sm">{loan.userName}</span>
+                                        </td>
+                                        <td className="py-3 px-4">
+                                            <span className="text-sm text-purple-400">{loan.itemName}</span>
+                                        </td>
+                                        <td className="py-3 px-4 font-bold text-sm">
+                                            {loan.quantity}
+                                        </td>
+                                        <td className="py-3 px-4">
+                                            {loan.returnStatus === 'pending_return' ? (
+                                                <span className="badge !bg-orange-500/20 !text-orange-400 text-xs">İade Bekliyor</span>
+                                            ) : (
+                                                <span className="badge !bg-green-500/20 !text-green-400 text-xs">Kullanımda</span>
+                                            )}
+                                        </td>
+                                        <td className="py-3 px-4 rounded-r-xl text-xs text-[var(--text-secondary)]">
+                                            {new Date(loan.approvedAt).toLocaleDateString('tr-TR')}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
         </div>
     );

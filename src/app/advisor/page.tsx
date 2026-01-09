@@ -33,6 +33,8 @@ interface ActiveLoan {
     quantity: number;
     approvedAt: string;
     reason: string;
+    returnStatus?: 'pending_return' | 'returned';
+    returnType?: 'self_declaration' | 'admin_check';
 }
 
 interface InventoryItem {
@@ -86,9 +88,11 @@ export default function AdvisorDashboard() {
                 const requests = requestsData.requests;
                 setRecentRequests(requests.slice(0, 5));
 
-                // Get approved requests as active loans
-                const approved = requests.filter((r: RecentRequest) => r.status === 'approved');
-                const loans: ActiveLoan[] = approved.map((r: RecentRequest & { reviewedAt?: string; reason?: string; itemId?: string }) => ({
+                // Get approved requests that are NOT yet returned as active loans
+                const approved = requests.filter((r: RecentRequest & { returnStatus?: string }) =>
+                    r.status === 'approved' && r.returnStatus !== 'returned'
+                );
+                const loans: ActiveLoan[] = approved.map((r: RecentRequest & { reviewedAt?: string; reason?: string; itemId?: string; returnStatus?: string; returnType?: string }) => ({
                     id: r.id,
                     userName: r.userName,
                     userId: r.userId,
@@ -96,7 +100,9 @@ export default function AdvisorDashboard() {
                     itemId: r.itemId || '',
                     quantity: r.quantity,
                     approvedAt: r.reviewedAt || r.createdAt,
-                    reason: r.reason || ''
+                    reason: r.reason || '',
+                    returnStatus: r.returnStatus,
+                    returnType: r.returnType
                 }));
                 setActiveLoans(loans);
 
@@ -298,6 +304,7 @@ export default function AdvisorDashboard() {
                                         <th className="pb-2 font-medium">Kullanıcı</th>
                                         <th className="pb-2 font-medium">Malzeme</th>
                                         <th className="pb-2 font-medium">Adet</th>
+                                        <th className="pb-2 font-medium">Durum</th>
                                         <th className="pb-2 font-medium">Tarih</th>
                                     </tr>
                                 </thead>
@@ -312,6 +319,13 @@ export default function AdvisorDashboard() {
                                             </td>
                                             <td className="py-3 px-4 font-bold text-sm">
                                                 {loan.quantity}
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                {loan.returnStatus === 'pending_return' ? (
+                                                    <span className="badge !bg-orange-500/20 !text-orange-400 text-xs">İade Bekliyor</span>
+                                                ) : (
+                                                    <span className="badge !bg-green-500/20 !text-green-400 text-xs">Kullanımda</span>
+                                                )}
                                             </td>
                                             <td className="py-3 px-4 rounded-r-xl text-xs text-[var(--text-secondary)]">
                                                 {new Date(loan.approvedAt).toLocaleDateString('tr-TR')}

@@ -26,6 +26,10 @@ export interface MaterialRequest {
     reviewedBy?: string;
     reviewedAt?: string;
     createdAt: string;
+    returnType?: 'self_declaration' | 'admin_check';
+    returnStatus?: 'pending_return' | 'returned';
+    returnRequestedAt?: string;
+    returnedAt?: string;
 }
 
 export type { User };

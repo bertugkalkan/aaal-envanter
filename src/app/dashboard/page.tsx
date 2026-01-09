@@ -35,7 +35,7 @@ export default function DashboardPage() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);
-    const [requestForm, setRequestForm] = useState({ quantity: 1, reason: '' });
+    const [requestForm, setRequestForm] = useState({ quantity: '1', reason: '' });
     const [submitLoading, setSubmitLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -97,7 +97,7 @@ export default function DashboardPage() {
                 },
                 body: JSON.stringify({
                     itemId: selectedItem.id,
-                    quantity: requestForm.quantity,
+                    quantity: parseInt(requestForm.quantity) || 1,
                     reason: requestForm.reason
                 })
             });
@@ -107,7 +107,7 @@ export default function DashboardPage() {
             if (res.ok) {
                 setMessage({ type: 'success', text: 'Talep başarıyla oluşturuldu!' });
                 setIsModalOpen(false);
-                setRequestForm({ quantity: 1, reason: '' });
+                setRequestForm({ quantity: '1', reason: '' });
                 fetchData();
             } else {
                 setMessage({ type: 'error', text: data.error });
@@ -330,7 +330,7 @@ export default function DashboardPage() {
                 onClose={() => {
                     setIsModalOpen(false);
                     setSelectedItem(null);
-                    setRequestForm({ quantity: 1, reason: '' });
+                    setRequestForm({ quantity: '1', reason: '' });
                 }}
                 title="Malzeme Talep Et"
             >
@@ -353,7 +353,7 @@ export default function DashboardPage() {
                                 min="1"
                                 max={selectedItem.quantity}
                                 value={requestForm.quantity}
-                                onChange={(e) => setRequestForm({ ...requestForm, quantity: parseInt(e.target.value) || 1 })}
+                                onChange={(e) => setRequestForm({ ...requestForm, quantity: e.target.value })}
                                 className="input-field"
                                 required
                             />
