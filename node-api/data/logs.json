@@ -393,18 +393,18 @@
   },
   {
     "action": "USER_LOGIN",
-    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
-    "userName": "Bertuğ Kalkan",
-    "details": "Kullanıcı girişi: Bertuğ Kalkan",
-    "timestamp": "2026-01-09T17:53:46.720Z",
-    "id": "f04b1e8d-f621-4b4a-8b7c-d738d09cd2ab"
+    "userId": "6d7599a5-89e6-4536-8b01-7303454027db",
+    "userName": "Test Admin",
+    "details": "Kullanıcı girişi: Test Admin",
+    "timestamp": "2026-01-09T17:42:12.824Z",
+    "id": "227241f5-f923-46bc-b129-f02891e7f04f"
   },
   {
     "action": "USER_LOGIN",
-    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
-    "userName": "Bertuğ Kalkan",
-    "details": "Kullanıcı girişi: Bertuğ Kalkan",
-    "timestamp": "2026-01-09T17:54:57.378Z",
-    "id": "0974156f-c538-4254-b47f-2a1c94bf6151"
+    "userId": "6d7599a5-89e6-4536-8b01-7303454027db",
+    "userName": "Test Admin",
+    "details": "Kullanıcı girişi: Test Admin",
+    "timestamp": "2026-01-09T17:42:16.618Z",
+    "id": "9e5f460a-2acb-4bfc-8bae-89e4f2c82ff2"
   }
 ]
