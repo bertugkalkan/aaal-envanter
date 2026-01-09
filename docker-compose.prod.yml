@@ -1,0 +1,12 @@
+services:
+  app:
+    image: ghcr.io/bertugkalkan/aaal-envanter:latest
+    container_name: aaal-envanter-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - JWT_SECRET=change-this-to-a-secure-secret-in-production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: always

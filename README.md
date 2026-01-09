@@ -51,3 +51,16 @@ Tüm veriler projenin içindeki `data/` klasöründe JSON formatında saklanır:
 **Önemli:** Uygulamayı başka bir bilgisayara taşırken bu `data/` klasörünü de mutlaka kopyalamalısınız, aksi takdirde tüm kayıtlar sıfırlanır.
 
 ---
+
+## 🚀 Başka Bilgisayarda Deployment (Kurulum)
+
+Uygulamayı başka bir sunucuda veya bilgisayarda çalıştırmak için kodu indirmenize gerek yoktur. Sadece `docker-compose.prod.yml` dosyasını kullanabilirsiniz.
+
+1.  Hedef bilgisayarda `aaal-envanter` adında bir klasör oluşturun.
+2.  Bu klasörün içine `data` adında boş bir klasör oluşturun (veritabanı için).
+3.  Bu klasörün içine projedeki `docker-compose.prod.yml` dosyasını kopyalayın ve adını `docker-compose.yml` yapın.
+4.  Terminali açıp şu komutu çalıştırın:
+
+```bash
+docker-compose up -d
+```
