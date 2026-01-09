@@ -300,7 +300,7 @@ export default function AdminDashboard() {
                     </div>
 
                     {recentLogs.length === 0 ? (
-                        <div className be="text-center py-8 text-[var(--text-secondary)]">
+                        <div className="text-center py-8 text-[var(--text-secondary)]">
                             Henüz aktivite yok
                         </div>
                     ) : (
