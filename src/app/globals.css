@@ -172,16 +172,6 @@ input[type="number"].input-field::-webkit-inner-spin-button {
 }
 
 /* Sidebar Styles */
-.sidebar {
-  background: var(--sidebar-bg);
-  min-width: 280px;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 2rem;
-  border-right: 1px solid var(--card-border);
-}
 
 .sidebar-link {
   display: flex;

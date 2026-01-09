@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import { useState, useEffect } from 'react';
 
 interface NavItem {
     name: string;
@@ -118,6 +119,12 @@ const navItems: NavItem[] = [
 export default function Sidebar() {
     const pathname = usePathname();
     const { user, logout } = useAuth();
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Mobil menüyü kapat nav değiştiğinde
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
 
     const filteredNavItems = navItems.filter(item => {
         if (!user) return false;
@@ -141,51 +148,86 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="sidebar">
-            <div className="mb-10">
-                <h1 className="text-2xl font-bold gradient-text">AAAL Envanter</h1>
-                <p className="text-sm text-[var(--text-secondary)] mt-1">Robotik Atölye</p>
-            </div>
+        <>
+            {/* Mobile Toggle Button */}
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] text-[var(--foreground)]"
+            >
+                {isOpen ? (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                ) : (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                )}
+            </button>
 
-            <nav className="flex flex-col gap-1">
-                {filteredNavItems.map((item) => (
-                    <Link
-                        key={item.href}
-                        href={item.href}
-                        className={`sidebar-link ${pathname === item.href ? 'active' : ''}`}
-                    >
-                        {item.icon}
-                        <span>{item.name}</span>
-                    </Link>
-                ))}
-            </nav>
+            {/* Backdrop for Mobile */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 md:hidden backdrop-blur-sm"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
 
-            <div className="absolute bottom-6 left-6 right-6">
-                <div className="glass-card p-4 mb-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-white font-bold">
-                            {user?.firstName?.charAt(0)}{user?.lastName?.charAt(0)}
-                        </div>
-                        <div className="overflow-hidden flex-1">
-                            <p className="font-medium truncate">{user?.firstName} {user?.lastName}</p>
-                            <div className="flex items-center gap-2">
-                                <span className={`w-2 h-2 rounded-full ${getRoleColor()}`}></span>
-                                <span className="text-xs text-[var(--text-secondary)]">{getRoleLabel()}</span>
-                            </div>
-                        </div>
+            {/* Sidebar */}
+            <div className={`
+                fixed top-0 left-0 h-full w-[280px] 
+                bg-[var(--sidebar-bg)] border-r border-[var(--card-border)] 
+                p-8 z-50 transition-transform duration-300 ease-in-out
+                ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+                md:translate-x-0
+            `}>
+                <div className="mb-10 flex items-center justify-between">
+                    <div>
+                        <h1 className="text-2xl font-bold gradient-text">AAAL Envanter</h1>
+                        <p className="text-sm text-[var(--text-secondary)] mt-1">Robotik Atölye</p>
                     </div>
                 </div>
 
-                <button
-                    onClick={logout}
-                    className="w-full flex items-center justify-center gap-2 py-3 text-[var(--text-secondary)] hover:text-white transition-colors"
-                >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
-                    <span>Çıkış Yap</span>
-                </button>
+                <nav className="flex flex-col gap-1 h-[calc(100vh-250px)] overflow-y-auto custom-scrollbar">
+                    {filteredNavItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`sidebar-link ${pathname === item.href ? 'active' : ''}`}
+                        >
+                            {item.icon}
+                            <span>{item.name}</span>
+                        </Link>
+                    ))}
+                </nav>
+
+                <div className="absolute bottom-6 left-6 right-6 bg-[var(--sidebar-bg)] pt-4">
+                    <div className="glass-card p-4 mb-4">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center text-white font-bold shrink-0">
+                                {user?.firstName?.charAt(0)}{user?.lastName?.charAt(0)}
+                            </div>
+                            <div className="overflow-hidden flex-1 min-w-0">
+                                <p className="font-medium truncate">{user?.firstName} {user?.lastName}</p>
+                                <div className="flex items-center gap-2">
+                                    <span className={`w-2 h-2 rounded-full ${getRoleColor()} shrink-0`}></span>
+                                    <span className="text-xs text-[var(--text-secondary)]">{getRoleLabel()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={logout}
+                        className="w-full flex items-center justify-center gap-2 py-3 text-[var(--text-secondary)] hover:text-white transition-colors"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <span>Çıkış Yap</span>
+                    </button>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

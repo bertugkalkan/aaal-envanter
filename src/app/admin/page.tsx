@@ -151,17 +151,17 @@ export default function AdminDashboard() {
             <Navbar title="Admin Paneli" />
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
                 <Link href="/admin/inventory" className="stat-card group relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <div className="flex items-center justify-between relative z-10">
                         <div>
                             <p className="text-[var(--text-secondary)] text-sm">Toplam Malzeme</p>
-                            <p className="text-4xl font-bold mt-2">{stats.totalItems}</p>
+                            <p className="text-3xl md:text-4xl font-bold mt-2">{stats.totalItems}</p>
                             <p className="text-xs text-[var(--text-secondary)] mt-1">Envanterde</p>
                         </div>
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--primary)]/20">
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--primary)]/20">
+                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
@@ -173,11 +173,11 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-between relative z-10">
                         <div>
                             <p className="text-[var(--text-secondary)] text-sm">Düşük Stok</p>
-                            <p className="text-4xl font-bold mt-2" style={{ color: stats.lowStockItems > 0 ? 'var(--warning)' : 'inherit' }}>{stats.lowStockItems}</p>
+                            <p className="text-3xl md:text-4xl font-bold mt-2" style={{ color: stats.lowStockItems > 0 ? 'var(--warning)' : 'inherit' }}>{stats.lowStockItems}</p>
                             <p className="text-xs text-[var(--text-secondary)] mt-1">Uyarı Seviyesinde</p>
                         </div>
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--warning)] to-orange-500 flex items-center justify-center shadow-lg shadow-[var(--warning)]/20">
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[var(--warning)] to-orange-500 flex items-center justify-center shadow-lg shadow-[var(--warning)]/20">
+                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                             </svg>
                         </div>
@@ -189,11 +189,11 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-between relative z-10">
                         <div>
                             <p className="text-[var(--text-secondary)] text-sm">Kullanıcılar</p>
-                            <p className="text-4xl font-bold mt-2">{stats.totalUsers}</p>
+                            <p className="text-3xl md:text-4xl font-bold mt-2">{stats.totalUsers}</p>
                             <p className="text-xs text-[var(--text-secondary)] mt-1">Sistemde Kayıtlı</p>
                         </div>
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--secondary)] to-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--secondary)]/20">
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[var(--secondary)] to-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--secondary)]/20">
+                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
                         </div>
@@ -205,11 +205,11 @@ export default function AdminDashboard() {
                     <div className="flex items-center justify-between relative z-10">
                         <div>
                             <p className="text-[var(--text-secondary)] text-sm">Bugünkü Log</p>
-                            <p className="text-4xl font-bold mt-2">{stats.todayLogs}</p>
+                            <p className="text-3xl md:text-4xl font-bold mt-2">{stats.todayLogs}</p>
                             <p className="text-xs text-[var(--text-secondary)] mt-1">İşlem Kaydı</p>
                         </div>
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--accent)] to-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--accent)]/20">
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-[var(--accent)] to-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[var(--accent)]/20">
+                            <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                         </div>

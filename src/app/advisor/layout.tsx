@@ -41,7 +41,7 @@ export default function AdvisorLayout({
     return (
         <div className="flex">
             <Sidebar />
-            <main className="ml-[280px] flex-1 p-8 min-h-screen">
+            <main className="md:ml-[280px] flex-1 p-4 md:p-8 min-h-screen pt-20 md:pt-8">
                 {children}
             </main>
         </div>

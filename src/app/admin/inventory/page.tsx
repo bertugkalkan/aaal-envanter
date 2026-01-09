@@ -191,20 +191,18 @@ export default function InventoryManagement() {
             <div className="glass-card p-6">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <h2 className="text-xl font-bold">Malzeme Listesi ({inventory.length})</h2>
-                    <div className="flex gap-3 flex-wrap">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <input
                             type="text"
                             placeholder="Ara..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="input-field !py-2 !px-4"
-                            style={{ width: '180px' }}
+                            className="input-field !py-2 !px-4 w-full sm:w-[180px]"
                         />
                         <select
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
-                            className="input-field !py-2 !px-4"
-                            style={{ width: '160px' }}
+                            className="input-field !py-2 !px-4 w-full sm:w-[160px]"
                         >
                             <option value="">Tüm Kategoriler</option>
                             {CATEGORIES.map(cat => (
@@ -216,7 +214,7 @@ export default function InventoryManagement() {
                                 resetForm();
                                 setIsModalOpen(true);
                             }}
-                            className="btn-primary !py-2"
+                            className="btn-primary !py-2 whitespace-nowrap"
                         >
                             + Yeni Malzeme
                         </button>

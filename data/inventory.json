@@ -39,11 +39,11 @@
     "name": "Wisent El Alet Seti",
     "description": "Kapsamlı el aletleri seti",
     "category": "Araç & Gereç",
-    "quantity": 1,
+    "quantity": 0,
     "minQuantity": 1,
     "location": "",
     "createdAt": "2026-01-08T22:41:00.000Z",
-    "updatedAt": "2026-01-08T22:41:00.000Z",
+    "updatedAt": "2026-01-09T16:56:38.651Z",
     "createdBy": "system",
     "id": "inv-002"
   },

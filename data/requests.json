@@ -12,5 +12,18 @@
     "adminNote": "(:",
     "reviewedBy": "490736c4-8f4b-4876-a735-759422557ac5",
     "reviewedAt": "2026-01-08T19:39:13.404Z"
+  },
+  {
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "itemId": "inv-002",
+    "itemName": "Wisent El Alet Seti",
+    "quantity": 1,
+    "reason": ".",
+    "status": "approved",
+    "createdAt": "2026-01-09T16:56:01.722Z",
+    "id": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5",
+    "reviewedBy": "490736c4-8f4b-4876-a735-759422557ac5",
+    "reviewedAt": "2026-01-09T16:56:38.652Z"
   }
 ]

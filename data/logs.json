@@ -315,5 +315,80 @@
     "details": "Kullanıcı girişi: admin admin",
     "timestamp": "2026-01-08T20:39:53.455Z",
     "id": "0b5bc51b-8202-40e3-b9bf-d3e67286018c"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T15:22:51.139Z",
+    "id": "dda13d02-66f1-4567-b0f0-34549d94d4b5"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T15:33:07.276Z",
+    "id": "98fbef58-6604-4d4d-bcc9-51df8a747e65"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "aa44fbf1-f434-4c58-b4ab-96e89cc0ae91",
+    "userName": "admin admin",
+    "details": "Kullanıcı girişi: admin admin",
+    "timestamp": "2026-01-09T16:54:26.652Z",
+    "id": "7d40dda3-976c-4248-9d0a-5c1d3d4b5df5"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T16:55:00.807Z",
+    "id": "fdd68419-0797-4ac6-9b65-db8b34923f4e"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Kullanıcı girişi: Bertuğ Kalkan",
+    "timestamp": "2026-01-09T16:55:50.910Z",
+    "id": "927df3ca-6d48-4bd4-9916-4f332278af67"
+  },
+  {
+    "action": "REQUEST_CREATE",
+    "userId": "c05524fa-84dd-498f-90b9-6b11b168dbd3",
+    "userName": "Bertuğ Kalkan",
+    "details": "Yeni talep oluşturuldu: Wisent El Alet Seti (1 adet)",
+    "metadata": {
+      "requestId": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5",
+      "itemId": "inv-002",
+      "quantity": 1,
+      "reason": "."
+    },
+    "timestamp": "2026-01-09T16:56:01.723Z",
+    "id": "ae32bdbd-44f7-42ed-b9a8-a291eb3d34c6"
+  },
+  {
+    "action": "USER_LOGIN",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Kullanıcı girişi: Sefa Hocam",
+    "timestamp": "2026-01-09T16:56:20.118Z",
+    "id": "38fd7aa5-9834-4498-89fa-221f678ea0e9"
+  },
+  {
+    "action": "REQUEST_APPROVE",
+    "userId": "490736c4-8f4b-4876-a735-759422557ac5",
+    "userName": "Sefa Hocam",
+    "details": "Talep onaylandı: Wisent El Alet Seti",
+    "metadata": {
+      "requestId": "fefa241a-b5ed-4aec-8341-bb6942aa3cc5",
+      "action": "approve",
+      "adminNote": ""
+    },
+    "timestamp": "2026-01-09T16:56:38.653Z",
+    "id": "2160b5fe-76fb-4055-9b46-9248bf7f62ee"
   }
 ]
