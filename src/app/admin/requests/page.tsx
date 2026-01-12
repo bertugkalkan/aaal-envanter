@@ -17,6 +17,10 @@ interface MaterialRequest {
     adminNote?: string;
     reviewedAt?: string;
     createdAt: string;
+    returnType?: 'self_declaration' | 'admin_check';
+    returnStatus?: 'pending_return' | 'returned';
+    returnRequestedAt?: string;
+    returnedAt?: string;
 }
 
 export default function RequestsManagement() {
@@ -26,8 +30,9 @@ export default function RequestsManagement() {
     const [statusFilter, setStatusFilter] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedRequest, setSelectedRequest] = useState<MaterialRequest | null>(null);
-    const [action, setAction] = useState<'approve' | 'reject'>('approve');
+    const [action, setAction] = useState<'approve' | 'reject' | 'confirm_return'>('approve');
     const [adminNote, setAdminNote] = useState('');
+    const [returnType, setReturnType] = useState<'self_declaration' | 'admin_check'>('self_declaration');
     const [submitLoading, setSubmitLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -67,20 +72,27 @@ export default function RequestsManagement() {
                 body: JSON.stringify({
                     id: selectedRequest.id,
                     action,
-                    adminNote
+                    adminNote: action === 'confirm_return' ? undefined : adminNote,
+                    returnType: action === 'approve' ? returnType : undefined
                 })
             });
 
             const data = await res.json();
 
             if (res.ok) {
+                let successMsg = '';
+                if (action === 'approve') successMsg = 'Talep onaylandı!';
+                else if (action === 'reject') successMsg = 'Talep reddedildi!';
+                else if (action === 'confirm_return') successMsg = 'İade onaylandı!';
+
                 setMessage({
                     type: 'success',
-                    text: action === 'approve' ? 'Talep onaylandı!' : 'Talep reddedildi!'
+                    text: successMsg
                 });
                 setIsModalOpen(false);
                 setSelectedRequest(null);
                 setAdminNote('');
+                setReturnType('self_declaration');
                 fetchRequests();
             } else {
                 setMessage({ type: 'error', text: data.error });
@@ -92,18 +104,15 @@ export default function RequestsManagement() {
         }
     };
 
-    const getStatusBadge = (status: string) => {
-        const classes = {
-            pending: 'badge badge-pending',
-            approved: 'badge badge-approved',
-            rejected: 'badge badge-rejected'
-        };
-        const texts = {
-            pending: 'Beklemede',
-            approved: 'Onaylandı',
-            rejected: 'Reddedildi'
-        };
-        return <span className={classes[status as keyof typeof classes]}>{texts[status as keyof typeof texts]}</span>;
+    const getStatusBadge = (request: MaterialRequest) => {
+        if (request.status === 'pending') return <span className="badge badge-pending">Beklemede</span>;
+        if (request.status === 'rejected') return <span className="badge badge-rejected">Reddedildi</span>;
+
+        // Approved status logic
+        if (request.returnStatus === 'returned') return <span className="badge !bg-blue-500/20 !text-blue-400">İade Edildi</span>;
+        if (request.returnStatus === 'pending_return') return <span className="badge !bg-orange-500/20 !text-orange-400">İade Bekliyor</span>;
+
+        return <span className="badge badge-approved">Onaylandı</span>;
     };
 
     const filteredRequests = statusFilter
@@ -111,6 +120,7 @@ export default function RequestsManagement() {
         : requests;
 
     const pendingCount = requests.filter(r => r.status === 'pending').length;
+    const returnPendingCount = requests.filter(r => r.returnStatus === 'pending_return').length;
 
     if (isLoading) {
         return (
@@ -131,16 +141,22 @@ export default function RequestsManagement() {
             )}
 
             {/* Pending Alert */}
-            {pendingCount > 0 && (
-                <div className="mb-6 px-4 py-3 rounded-lg bg-[var(--warning)]/10 border border-[var(--warning)]/20 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--warning)]/20 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-[var(--warning)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <span className="text-[var(--warning)]">
-                        <strong>{pendingCount}</strong> adet bekleyen talep var
-                    </span>
+            {(pendingCount > 0 || returnPendingCount > 0) && (
+                <div className="mb-6 flex flex-col gap-2">
+                    {pendingCount > 0 && (
+                        <div className="px-4 py-3 rounded-lg bg-[var(--warning)]/10 border border-[var(--warning)]/20 flex items-center gap-3">
+                            <span className="text-[var(--warning)]">
+                                <strong>{pendingCount}</strong> adet bekleyen talep var
+                            </span>
+                        </div>
+                    )}
+                    {returnPendingCount > 0 && (
+                        <div className="px-4 py-3 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center gap-3">
+                            <span className="text-orange-400">
+                                <strong>{returnPendingCount}</strong> adet iade onayı bekliyor
+                            </span>
+                        </div>
+                    )}
                 </div>
             )}
 
@@ -159,18 +175,6 @@ export default function RequestsManagement() {
                             className={`px-4 py-2 rounded-lg transition-colors ${statusFilter === 'pending' ? 'bg-[var(--warning)] text-white' : 'bg-white/5 text-[var(--text-secondary)] hover:bg-white/10'}`}
                         >
                             Bekleyen
-                        </button>
-                        <button
-                            onClick={() => setStatusFilter('approved')}
-                            className={`px-4 py-2 rounded-lg transition-colors ${statusFilter === 'approved' ? 'bg-[var(--success)] text-white' : 'bg-white/5 text-[var(--text-secondary)] hover:bg-white/10'}`}
-                        >
-                            Onaylı
-                        </button>
-                        <button
-                            onClick={() => setStatusFilter('rejected')}
-                            className={`px-4 py-2 rounded-lg transition-colors ${statusFilter === 'rejected' ? 'bg-[var(--danger)] text-white' : 'bg-white/5 text-[var(--text-secondary)] hover:bg-white/10'}`}
-                        >
-                            Reddedildi
                         </button>
                     </div>
                 </div>
@@ -217,7 +221,7 @@ export default function RequestsManagement() {
                                     </div>
 
                                     <div className="flex items-center gap-3 ml-[52px] md:ml-0">
-                                        {getStatusBadge(request.status)}
+                                        {getStatusBadge(request)}
 
                                         {request.status === 'pending' && (
                                             <div className="flex gap-2">
@@ -243,6 +247,19 @@ export default function RequestsManagement() {
                                                 </button>
                                             </div>
                                         )}
+
+                                        {request.returnStatus === 'pending_return' && (
+                                            <button
+                                                onClick={() => {
+                                                    setSelectedRequest(request);
+                                                    setAction('confirm_return');
+                                                    setIsModalOpen(true);
+                                                }}
+                                                className="btn-primary"
+                                            >
+                                                İadeyi Onayla
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -259,7 +276,11 @@ export default function RequestsManagement() {
                     setSelectedRequest(null);
                     setAdminNote('');
                 }}
-                title={action === 'approve' ? 'Talebi Onayla' : 'Talebi Reddet'}
+                title={
+                    action === 'approve' ? 'Talebi Onayla' :
+                        action === 'reject' ? 'Talebi Reddet' :
+                            'İadeyi Onayla'
+                }
             >
                 {selectedRequest && (
                     <div>
@@ -268,21 +289,65 @@ export default function RequestsManagement() {
                             <p className="text-sm text-[var(--text-secondary)]">
                                 {selectedRequest.itemName} × {selectedRequest.quantity} adet
                             </p>
-                            <p className="text-sm mt-2">{selectedRequest.reason}</p>
+                            {action === 'confirm_return' && (
+                                <p className="text-sm text-orange-400 mt-2">
+                                    {selectedRequest.userName} bu ürünü iade ettiğini beyan etti.
+                                </p>
+                            )}
                         </div>
 
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)]">
-                                Not (Opsiyonel)
-                            </label>
-                            <textarea
-                                value={adminNote}
-                                onChange={(e) => setAdminNote(e.target.value)}
-                                className="input-field"
-                                rows={3}
-                                placeholder={action === 'reject' ? 'Reddetme sebebini yazın...' : 'Ek not ekleyin...'}
-                            />
-                        </div>
+                        {action === 'approve' && (
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)]">
+                                    İade Yöntemi
+                                </label>
+                                <div className="space-y-2">
+                                    <label className="flex items-center gap-2 p-3 rounded-lg bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+                                        <input
+                                            type="radio"
+                                            name="returnType"
+                                            value="self_declaration"
+                                            checked={returnType === 'self_declaration'}
+                                            onChange={(e) => setReturnType(e.target.value as any)}
+                                            className="text-[var(--primary)]"
+                                        />
+                                        <div>
+                                            <p className="font-medium">Üye Beyanı</p>
+                                            <p className="text-xs text-[var(--text-secondary)]">Üye "İade Ettim" dediğinde stok otomatik artar.</p>
+                                        </div>
+                                    </label>
+                                    <label className="flex items-center gap-2 p-3 rounded-lg bg-white/5 cursor-pointer hover:bg-white/10 transition-colors">
+                                        <input
+                                            type="radio"
+                                            name="returnType"
+                                            value="admin_check"
+                                            checked={returnType === 'admin_check'}
+                                            onChange={(e) => setReturnType(e.target.value as any)}
+                                            className="text-[var(--primary)]"
+                                        />
+                                        <div>
+                                            <p className="font-medium">Yetkili Kontrollü</p>
+                                            <p className="text-xs text-[var(--text-secondary)]">Yetkili iadeyi onaylamadan stok artmaz.</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        )}
+
+                        {action !== 'confirm_return' && (
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium mb-2 text-[var(--text-secondary)]">
+                                    Not (Opsiyonel)
+                                </label>
+                                <textarea
+                                    value={adminNote}
+                                    onChange={(e) => setAdminNote(e.target.value)}
+                                    className="input-field"
+                                    rows={3}
+                                    placeholder={action === 'reject' ? 'Reddetme sebebini yazın...' : 'Ek not ekleyin...'}
+                                />
+                            </div>
+                        )}
 
                         <div className="flex gap-3">
                             <button
@@ -298,12 +363,17 @@ export default function RequestsManagement() {
                             <button
                                 onClick={handleAction}
                                 disabled={submitLoading}
-                                className={`flex-1 flex items-center justify-center ${action === 'approve' ? 'btn-success' : 'btn-danger'}`}
+                                className={`flex-1 flex items-center justify-center ${action === 'approve' ? 'btn-success' :
+                                    action === 'reject' ? 'btn-danger' :
+                                        'btn-primary'
+                                    }`}
                             >
                                 {submitLoading ? (
                                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                                 ) : (
-                                    action === 'approve' ? 'Onayla' : 'Reddet'
+                                    action === 'approve' ? 'Onayla' :
+                                        action === 'reject' ? 'Reddet' :
+                                            'Onayla'
                                 )}
                             </button>
                         </div>
@@ -313,3 +383,4 @@ export default function RequestsManagement() {
         </div>
     );
 }
+
